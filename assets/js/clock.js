@@ -13,6 +13,9 @@ min.style.rotate='0deg';
 hr.style.rotate='0deg';
 
 // this functions takes the first two llaters fo a country code and name of the country and set the clock time to that country
+
+console.log(fetch("https://timezone.abstractapi.com/v1/current_time/?api_key=6b3e6ecb9dd84fdaaa656f4b59dee3b9&location=Oxford, United Kingdom"));
+
 function clockSetter(country,name)
 {
   // api call to fetch timmestamp of corresponding country
