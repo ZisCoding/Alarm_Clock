@@ -47,6 +47,7 @@ function clockRunner()
 {
   // using setinterval to call a funtion after every second to rotate the second hand by 6deg
   setInterval(()=>{
+    console.log(hr.style.rotate);
     let temp = parseInt(sec.style.rotate);
     temp+=6;
 
@@ -78,7 +79,7 @@ function clockRunner()
 
     hr.style.rotate=`${temp}deg`;
 
-  },600000)
+  },360000)
 }
 
 // adding eventlistener on click for time zones button 
