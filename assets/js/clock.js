@@ -12,29 +12,23 @@ sec.style.rotate='0deg';
 min.style.rotate='0deg';
 hr.style.rotate='0deg';
 
-// this functions takes the first two llaters fo a country code and name of the country and set the clock time to that country
+// this functions takes the first two llaters for a country code and name of the country and set the clock time to that country
 
-console.log(fetch("https://timezone.abstractapi.com/v1/current_time/?api_key=6b3e6ecb9dd84fdaaa656f4b59dee3b9&location=Oxford, United Kingdom"));
-
-function clockSetter(country,name)
+function clockSetter(country , name)
 {
-  // api call to fetch timmestamp of corresponding country
-  const timestamp =  fetch(`//api.timezonedb.com/v2.1/list-time-zone?key=KQMSGLUR2U1A&format=json&country=${country}`)
+  const timestamp = fetch(`https://timezone.abstractapi.com/v1/current_time/?api_key=6b3e6ecb9dd84fdaaa656f4b59dee3b9&location=${country}`)
   .then(response => response.json()) // converting the recieved response into json format 
   .then(data => {return data}) // returing the data as a promise
   .catch(error => console.error(error));
-  
 
   timestamp.then(data => {
 
-    const countryData=data.zones[0];
-
     // creating a Date obj using timestamp and gmtOffset
-    const date = new Date((countryData.timestamp + (countryData.gmtOffset / 3600)) * 1000);
+    const date = new Date(data.datetime);
 
-    const hours = date.getUTCHours();
-    const minutes = date.getUTCMinutes();
-    const seconds = date.getUTCSeconds();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
 
     // setting the clock hands according to time
     hr.style.rotate = (`${(hours*30)+(minutes*0.5)+(seconds*(0.03333))}deg`);
@@ -43,7 +37,6 @@ function clockSetter(country,name)
     
     document.getElementById('zone').innerHTML=`Current Time Zone: ${name}`;
   });
-
 }
 
 // this function makes the clock live
@@ -86,11 +79,11 @@ function clockRunner()
 
 // adding eventlistener on click for time zones button 
 indButton.addEventListener('click',()=>clockSetter("IN","INDIA"));
-uaeButton.addEventListener('click',()=>clockSetter("UA","U.A.E"));
+uaeButton.addEventListener('click',()=>clockSetter("UAE","U.A.E"));
 japanButton.addEventListener('click',()=>clockSetter("JP","JAPAN"));
 
 // starting the clock
 (()=>{
-  clockSetter("IN","INDIA")
+  clockSetter("INDIA","INDIA")
   clockRunner();  
 })();
