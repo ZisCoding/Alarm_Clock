@@ -15,15 +15,17 @@ const japanButton=document.getElementById('japan');
 // this functions takes the first two llaters fo a country code and name of the country and set the clock time to that country
 function clockSetter(country , name)
 {
-  const timestamp = fetch(`https://timezone.abstractapi.com/v1/current_time/?api_key=6b3e6ecb9dd84fdaaa656f4b59dee3b9&location=${country}`)
+  const timestamp = fetch(`https://api.ipgeolocation.io/timezone?apiKey=95428a7a36764b7cb17efd712f4f0d10&tz=${country}`)
   .then(response => response.json()) // converting the recieved response into json format 
   .then(data => {return data}) // returing the data as a promise
   .catch(error => console.error(error));
 
-  timestamp.then(data => {
+    
 
+  timestamp.then(data => {
+    console.log(data , data.date_time);
     // creating a Date obj using timestamp and gmtOffset
-    const date = new Date(data.datetime);
+    const date = new Date(data.date_time);
 
     const hours = date.getHours();
     const minutes = date.getMinutes();
@@ -80,12 +82,12 @@ function clockRunner()
 }
 
 // adding eventlistener on click for time zones button 
-indButton.addEventListener('click',()=>clockSetter("IN","INDIA"));
-uaeButton.addEventListener('click',()=>clockSetter("UA","U.A.E"));
-japanButton.addEventListener('click',()=>clockSetter("JP","JAPAN"));
+indButton.addEventListener('click',()=>clockSetter("Asia/Kolkata","INDIA"));
+uaeButton.addEventListener('click',()=>clockSetter("Asia/Dubai","U.A.E"));
+japanButton.addEventListener('click',()=>clockSetter("Japan","JAPAN"));
 
 // starting the clock
 (()=>{
-  clockSetter("INDIA","INDIA")
   clockRunner();  
+  clockSetter("Asia/Kolkata","INDIA")
 })();
