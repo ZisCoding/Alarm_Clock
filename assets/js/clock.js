@@ -16,7 +16,7 @@ hr.style.rotate='0deg';
 function clockSetter(country,name)
 {
   // api call to fetch timmestamp of corresponding country
-  const timestamp =  fetch(`https://api.timezonedb.com/v2.1/list-time-zone?key=KQMSGLUR2U1A&format=json&country=${country}`)
+  const timestamp =  fetch(`//api.timezonedb.com/v2.1/list-time-zone?key=KQMSGLUR2U1A&format=json&country=${country}`)
   .then(response => response.json()) // converting the recieved response into json format 
   .then(data => {return data}) // returing the data as a promise
   .catch(error => console.error(error));
