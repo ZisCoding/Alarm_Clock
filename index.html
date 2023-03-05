@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet"  href="assets/font_awesome/v6.3.0/css/all.css">
+    <link rel="stylesheet"  href="assets/font_awesome/v6.3.0/css/sharp-regular.css">
+    <link rel="stylesheet"  href="assets/font_awesome/v6.3.0/css/sharp-solid.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/fevicon.ico">
+    <title>Alarm Clock</title>
+</head>
+<body>
+    
+    <!-- attach background image here -->
+    <img id="background-image" src="./assets/images/background2.jpg">
+
+    <!-- main conatiner for clock -->
+    <div id="main-container" class="container-fluid px-5 py-4" >
+
+        <div class="row">
+            
+            <!-- devide the whole page in two columns on big screen both the col will be parellel and on small screen they will be stacked -->
+            <div class="col-sm-12 col-md-5">
+
+                <!-- dividing the content of of column in multpile rows -->
+
+                <!-- row for time zone status -->
+                <div class="row mt-3">
+                    
+                    <div class="col">
+
+                        <h4 id="zone" class="text-center text-light ">Current Time Zone: </h4>
+
+                    </div>
+
+                </div>
+
+                <!-- row for clock image -->
+                <div class="row position-relative">
+                    
+                    <div class="col text-center">
+
+                        <img id="clock-img" src="assets/images/clock.png">
+                        
+                        <!-- define clock hands here -->
+                        <div id="hour-hand" class="clock-hands"></div>
+                        <div id="minute-hand" class="clock-hands"></div>
+                        <div id="second-hand" class="clock-hands"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- row for  time zones -->
+                <div class="row mt-4">
+
+                    <div class="col">
+
+                        <h1 class="ps-3 text-light">Time Zones</h1>
+
+                        <div id="time-zones" class="d-flex flex-wrap  justify-content-start">
+                            <button id="ind" type="button" class="w-25 btn btn-outline-light btn-lg m-3">INDIA</button>
+                            <button id="uae" type="button" class="w-25 btn btn-outline-light btn-lg m-3">U.A.E</button>
+                            <button id="japan" type="button" class="w-25 btn btn-outline-light btn-lg m-3">Japan</button>
+                          </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-12 col-md-7 ">
+                
+                <!-- dividing the content of of column in multpile rows -->
+                <div class="row">
+                    
+                    <div class="col">
+
+                        <h1 class="text-center text-light pt-2">Alarm clock</h1>
+
+                    </div>
+
+                </div>
+
+                <!-- alarm controller -->
+                <div id="alarm-controller" class="col p-3">
+
+                    <!-- define the structure of alarm setter here -->
+                    <div id="set-alarm" class="d-flex flex-wrap">
+
+                            
+                        <div id="hour-input" style="flex-basis: 33.33%;">
+                            
+                            <h5 >Select Hour(s)</h5>
+                            <select id="selected-hour" class="input-field">
+
+                                <option>12 AM</option>
+                                <option>1 AM</option>
+                                <option>2 AM</option>
+                                <option>3 AM</option>
+                                <option>4 AM</option>
+                                <option>5 Am</option>
+                                <option>6 AM</option>
+                                <option>7 AM</option>
+                                <option>8 AM</option>
+                                <option>9 AM</option>
+                                <option>10 AM</option>
+                                <option>11 AM</option>
+                                <option>12 PM</option>
+                                <option>1 PM</option>
+                                <option>2 PM</option>
+                                <option>3 PM</option>
+                                <option>4 PM</option>
+                                <option>5 PM</option>
+                                <option>6 PM</option>
+                                <option>7 PM</option>
+                                <option>8 PM</option>
+                                <option>9 PM</option>
+                                <option>10 PM</option>
+                                <option>11 PM</option>
+                                
+
+                            </select>
+
+                        </div>
+                            
+                        <div id="minute-input" style="flex-basis: 33.33%;">
+
+                            <h5 >Select Minute(s)</h5>
+
+                            <select id="selected-minute" class="input-field">
+
+                                <option>00</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
+                                <option>50</option>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                                <option>56</option>
+                                <option>57</option>
+                                <option>58</option>
+                                <option>59</option>
+                                
+                            </select>
+
+                        </div>
+
+                        <div id="second-input" style="flex-basis: 33.33%;">
+
+                            <h5 >Select Second(s)</h5>
+
+                            <select id="selected-second" class="input-field">
+
+                                <option>00</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
+                                <option>50</option>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                                <option>56</option>
+                                <option>57</option>
+                                <option>58</option>
+                                <option>59</option>
+                                
+                            </select>
+
+                        </div>
+
+                        <div id="ringtone-input" class="my-4" style="flex-basis: 100%">
+
+                            <h5 >Select Ringtone</h5>
+
+                            <select id="selected-ring" class="input-field">
+
+                                <option>Bell</option>
+                                <option>Childhood</option>
+                                <option>Classic</option>
+                                <option>Rooster</option>
+                                <option>Piano</option>
+                                <option>Twinkle</option>
+
+                            </select>
+
+                        </div>
+
+                        <div id="alarm-title" class="mb-4"  style="flex-basis: 100%">
+
+                            <h5>Title</h5>
+
+                            <input id="title" class="input-field" type="text" value="Alarm">
+
+                        </div>
+
+                            
+                        <div id="submit-button" class="mb-4" style="flex-basis: 100%; text-align: center;">
+
+                            <button id="add-alarm" type="button" class="input-field w-25"><i id="add-alarm" class="fa-duotone fa-plus fs-4"></i></button>
+
+                        </div>                            
+
+
+                    </div>
+
+                    <div id="alarm-list">
+
+                        <h4 class="mb-3">Upcoming Alarms</h4>
+
+                        <ol id="list"  class="p-3" style="height: 160px; overflow-y:scroll">
+                            
+
+                        </ol>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script  src="assets/js/index.js"> </script>
+    <script  src="assets/js/clock.js"> </script>
+</body>
+</html>
