@@ -48,7 +48,6 @@ function setAlarm(obj,item){
     givenTime.setMinutes(alarmMinute);
     givenTime.setSeconds(alarmSecond);
 
-    console.log(givenTime.getTime(),currentTime.getTime());
 
     if(givenTime.getTime() < currentTime.getTime())
     givenTime.setDate(currentTime.getDate()+1);

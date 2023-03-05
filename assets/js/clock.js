@@ -23,7 +23,7 @@ function clockSetter(country , name)
     
 
   timestamp.then(data => {
-    console.log(data , data.date_time);
+  
     // creating a Date obj using timestamp and gmtOffset
     const date = new Date(data.date_time);
 
